@@ -1,0 +1,42 @@
+---
+title: RAG Document Q&A Pipeline
+date: "2024-06-01"
+description: A retrieval-augmented generation pipeline for high-fidelity enterprise knowledge extraction, built with a DeepEval-based evaluation framework.
+author: Brian Moir
+published: true
+type: "project"
+theme: "light"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-03.png"
+video: ""
+videoDark: ""
+aspect_ratio: 1.6
+href: ""
+---
+
+## Overview
+
+A retrieval-augmented generation pipeline for high-fidelity enterprise knowledge extraction, built with a DeepEval-based evaluation framework. Implements OpenAI embeddings, cosine-similarity search, and tuned chunking strategies for accurate, grounded document Q&A.
+
+[Website](https://get.liinkd.xyz/)
+
+## Tech Stack
+
+Python · LangChain · OpenAI Embeddings · DeepEval · Vector DB · RAG
+
+## Skills Used
+
+RAG Pipeline Design · Embedding Strategy · Chunking & Retrieval Tuning · LLM Evaluation (DeepEval) · Grounding & Hallucination Control
+
+## Architecture & Design Decisions
+
+Most RAG failures are retrieval failures. This pipeline treats ingestion, chunking, retrieval, and evaluation as separate, measurable stages instead of a single "embed the PDF" script.
+
+**Ingestion.** Documents are normalized (text, tables, headings) before they hit the embedder. Metadata — source, date, doc type — is stored alongside vectors so queries can filter before ranking.
+
+**Chunking.** Splits follow semantic boundaries (headers, paragraphs, tables) rather than a fixed token window. Chunks stay small enough to keep the relevance signal sharp, with a small overlap so cross-boundary references survive.
+
+**Embeddings & search.** OpenAI embeddings plus cosine similarity are the baseline. Production queries can layer hybrid search (BM25 + vectors) and a re-ranker when precision matters more than latency.
+
+**Evaluation.** DeepEval measures faithfulness (is the answer supported by context?), answer relevance, and contextual precision. The goal is not zero hallucination — it is a groundedness score you can move with chunking, retrieval, and prompt changes.
+
+That eval loop is what makes the pipeline shippable: every change to chunk size or the system prompt is a regression test, not a vibe check.

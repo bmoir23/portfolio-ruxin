@@ -3,7 +3,6 @@
 import { META_THEME_COLORS } from '@/config/site';
 import { analytics } from '@/lib/analytics';
 import { useMetaColor } from '@/lib/hooks/use-meta-colors';
-import { useSound } from '@/lib/hooks/use-sound';
 import { type Variants, motion as m } from 'motion/react';
 import { useTheme } from 'next-themes';
 import { useCallback, useRef } from 'react';
@@ -79,10 +78,7 @@ export default function ModeToggle() {
 
   const { setMetaColor } = useMetaColor();
 
-  const playClick = useSound("/assets/button-click.mp3");
-
   const switchTheme = useCallback(() => {
-    playClick();
     const currentTheme = resolvedTheme === "dark" ? "dark" : "light";
     const newTheme = currentTheme === "dark" ? "light" : "dark";
     
@@ -95,7 +91,7 @@ export default function ModeToggle() {
         ? META_THEME_COLORS.light
         : META_THEME_COLORS.dark
     );
-  }, [resolvedTheme, setTheme, setMetaColor, playClick]);
+  }, [resolvedTheme, setTheme, setMetaColor]);
 
 
   return (

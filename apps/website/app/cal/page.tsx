@@ -11,7 +11,7 @@ export const dynamic = 'force-static';
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Book a Meeting';
   const description =
-    'Schedule a meeting with me to discuss anything from design to engineering to business to anything else.';
+    'Schedule a conversation about AI architecture, agentic systems, RAG pipelines, or production LLM platforms.';
 
   const image = createOgImage({
     title: title,

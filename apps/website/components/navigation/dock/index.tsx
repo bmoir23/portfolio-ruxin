@@ -16,7 +16,6 @@ import { DockConfig } from '@/lib/config';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import ModeToggle from './mode-toggle';
-import { SoundToggle } from './sound-toggle';
 
 const DOCK_AUTOHIDE_TIMEOUT = 5_000;
 
@@ -122,10 +121,6 @@ function BottomDock({ className }: { className: string }) {
             {enabled && <DockIconActiveDot isActive />}
           </DockIcon>
         )}
-
-        <DockIcon title={'Sound'}>
-          <SoundToggle />
-        </DockIcon>
 
         <DockIcon title={'Theme'}>
           <ModeToggle />

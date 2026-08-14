@@ -11,13 +11,13 @@
 //   return (
 //     <EmailBody email={email}>
 //       <Heading className="mx-0 my-7 p-0 text-center font-semibold text-[#f43f5e] text-xl">
-//         Welcome to Ruixen's Site
+//         Welcome to Brian's Site
 //       </Heading>
 
 //       <EmailText>Thanks for subscribing!</EmailText>
 
 //       <EmailText>
-//         This is Ruixen — excited to have you on board!
+//         This is Brian — excited to have you on board!
 //       </EmailText>
 
 //       <EmailText>

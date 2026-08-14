@@ -58,6 +58,18 @@ let nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'pub-940ccf6255b54fa799a9b01050e6c227.r2.dev',
+      },
+      {
+        protocol: 'https',
+        hostname: 'portfolio.brianmoir.dev',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.google.com',
+      },
+      {
+        protocol: 'https',
         hostname: 'www.ruixen.com',
       },
       {
@@ -94,8 +106,26 @@ let nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/craft',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/craft/feed.xml',
+        destination: '/projects/feed.xml',
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
+      {
+        source: '/projects/:slug.mdx',
+        destination: '/blog.mdx/:slug',
+      },
       {
         source: '/craft/:slug.mdx',
         destination: '/blog.mdx/:slug',

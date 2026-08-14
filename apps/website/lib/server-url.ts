@@ -6,7 +6,7 @@ export const getDomain = async () => {
 
   if (domain === 'localhost:6969' || domain.endsWith('.vercel.app')) {
     // for local development and preview URLs
-    domain = 'portfolio-ruixens-projects.vercel.app';
+    domain = 'portfolio.brianmoir.dev';
   }
 
   return domain;

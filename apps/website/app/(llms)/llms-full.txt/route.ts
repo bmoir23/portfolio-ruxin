@@ -100,7 +100,7 @@ function generateUserSection() {
 async function generateCraftPostsSection() {
   const posts = await getAllPosts();
 
-  const content = ['===== CRAFT POSTS =====', ''];
+  const content = ['===== PROJECT POSTS =====', ''];
 
   for (const post of posts) {
     content.push(

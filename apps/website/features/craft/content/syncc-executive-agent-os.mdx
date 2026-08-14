@@ -1,0 +1,44 @@
+---
+title: Syncc Executive Agent OS
+date: "2025-01-15"
+description: A production-grade multi-agent AI platform enabling enterprise autonomous task execution with human-in-the-loop oversight and AI Gateway routing.
+author: Brian Moir
+published: true
+type: "project"
+theme: "light"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-01.png"
+video: ""
+videoDark: ""
+aspect_ratio: 1.6
+href: ""
+---
+
+## Overview
+
+A production-grade multi-agent AI platform enabling enterprise autonomous task execution. Integrates LangChain orchestration, MCP servers, n8n automation, and vector retrieval, with configurable human-in-the-loop oversight, behavioral governance, and AI Gateway routing for cost and latency control.
+
+[GitHub](https://github.com/bmoir23/syncc-liinkd-frontend) · [Website](https://get.liinkd.xyz/)
+
+## Tech Stack
+
+LangChain · MCP Protocol · n8n · Next.js 15 · Supabase · Cloudflare Workers · AI Gateway · Vector DB
+
+## Skills Used
+
+Multi-Agent Orchestration · Agentic System Design · Prompt Engineering · AI Gateway / Cost Governance · Human-in-the-Loop Design · Observability
+
+## Architecture & Design Decisions
+
+Syncc is an executive agent operating system, not a chatbot wrapper. The orchestration layer owns task graphs, tool selection, and retry policy. Individual agents stay narrow: research, writing, ticket updates, retrieval. A supervisor routes work and decides when a human has to approve a side effect.
+
+**Orchestration.** LangChain (and LangGraph-style loops) keep state explicit: current goal, retrieved context, tool results, and pending approvals. That makes failures inspectable instead of buried in a single prompt.
+
+**Integrations.** MCP servers expose Notion, Jira, ClickUp, and Confluence as tools and resources. Agents never talk to those APIs ad hoc; they go through a governed contract with identity, rate limits, and audit logs.
+
+**Workflows.** n8n handles deterministic automation — the paths that should not be improvised. Agents call into those workflows when a job is better as a DAG than as a conversation.
+
+**Retrieval.** Vector search supplies grounded context for long-running work. The same eval mindset used in the RAG pipeline (faithfulness, relevance) applies when an agent cites a document.
+
+**Control plane.** Cloudflare AI Gateway sits in front of model providers for logging, fallbacks, caching, and cost attribution. Budgets and model routing are product decisions, not afterthoughts.
+
+**Human-in-the-loop.** High-impact tools (send, write, delete, pay) require approval. The UI surfaces the proposed action, the evidence, and a one-click confirm/reject path so operators stay in control without becoming a bottleneck for low-risk work.

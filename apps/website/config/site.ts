@@ -5,12 +5,11 @@ export const META_THEME_COLORS = {
   dark: '#09090b',
 };
 
-export const SOURCE_CODE_GITHUB_REPO = 'ruixenui/portfolio';
-export const SOURCE_CODE_GITHUB_URL =
-  'https://github.com/ruixenui/portfolio';
+export const SOURCE_CODE_GITHUB_REPO = 'bmoir23';
+export const SOURCE_CODE_GITHUB_URL = 'https://github.com/bmoir23';
 
 export const UTM_PARAMS = {
-  utm_source: 'ruixen',
+  utm_source: 'brianmoir',
   utm_medium: 'portfolio_website',
   utm_campaign: 'referral',
 };

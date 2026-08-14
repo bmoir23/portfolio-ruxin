@@ -30,60 +30,76 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    id: 'palettebox',
-    title: 'PaletteBox',
+    id: 'syncc-executive-agent-os',
+    title: 'Syncc Executive Agent OS',
     period: {
-      start: '03.2025',
+      start: '2023',
     },
-    link: 'https://palettebox.design/',
-    logo: '/project_images/ruixen_ui_logo.jpeg',
+    link: '/projects/syncc-executive-agent-os',
+    github: 'https://github.com/bmoir23/syncc-liinkd-frontend',
+    logo: 'https://www.google.com/s2/favicons?domain=liinkd.xyz&sz=128',
     skills: [
-      'Next.js',
-      'TypeScript',
-      'React',
-      'Tailwind CSS',
-      'Figma API',
+      'LangChain',
+      'MCP Protocol',
+      'n8n',
+      'Next.js 15',
+      'Supabase',
+      'Cloudflare Workers',
+      'AI Gateway',
+      'Vector DB',
     ],
     shortDescription:
-      'A design token manager that syncs Figma variables to code in real time.',
-    description: `A bridge between design and engineering workflows.
-
-Features include:
-- Two-way sync between Figma variables and CSS/Tailwind tokens
-- Visual diff viewer for design changes
-- CLI for CI/CD integration
-- Team collaboration with role-based access`,
+      'A production-grade multi-agent AI platform enabling enterprise autonomous task execution with human-in-the-loop oversight and AI Gateway routing.',
+    description: `A production-grade multi-agent AI platform enabling enterprise autonomous task execution. Integrates LangChain orchestration, MCP servers, n8n automation, and vector retrieval, with configurable human-in-the-loop oversight, behavioral governance, and AI Gateway routing for cost and latency control.`,
     isExpanded: true,
   },
   {
-    id: 'hookshelf',
-    title: 'HookShelf',
+    id: 'rag-document-qa-pipeline',
+    title: 'RAG Document Q&A Pipeline',
     period: {
-      start: '09.2024',
+      start: '2024',
+      end: '2024',
     },
-    link: 'https://hookshelf.dev/',
-    logo: '/project_images/shadcnagents.png',
-    skills: ['React', 'TypeScript', 'Storybook', 'Vitest', 'npm'],
-    shortDescription:
-      'A curated collection of production-ready React hooks with interactive docs.',
-  },
-  {
-    id: 'tablewise',
-    title: 'Tablewise',
-    period: {
-      start: '01.2024',
-      end: '08.2024',
-    },
-    link: 'https://tablewise.app/',
-    logo: '/project_images/source_of_truth.png',
+    link: '/projects/rag-document-qa-pipeline',
+    logo: 'https://www.google.com/s2/favicons?domain=liinkd.xyz&sz=128',
     skills: [
-      'Next.js',
-      'PostgreSQL',
-      'Prisma',
-      'tRPC',
-      'Stripe',
+      'Python',
+      'LangChain',
+      'OpenAI Embeddings',
+      'DeepEval',
+      'Vector DB',
+      'RAG',
     ],
     shortDescription:
-      'A lightweight database explorer and query builder for non-technical teams.',
+      'A retrieval-augmented generation pipeline for high-fidelity enterprise knowledge extraction, built with a DeepEval-based evaluation framework.',
+    description: `A retrieval-augmented generation pipeline for high-fidelity enterprise knowledge extraction, built with a DeepEval-based evaluation framework. Implements OpenAI embeddings, cosine-similarity search, and tuned chunking strategies for accurate, grounded document Q&A.`,
+  },
+  {
+    id: 'structured-data-extraction-pipeline',
+    title: 'Structured Data Extraction Pipeline',
+    period: {
+      start: '2024',
+      end: '2024',
+    },
+    link: '/projects/structured-data-extraction-pipeline',
+    logo: 'https://www.google.com/s2/favicons?domain=liinkd.xyz&sz=128',
+    skills: ['AWS Lambda', 'Terraform', 'Python', 'CI/CD', 'Schema Validation'],
+    shortDescription:
+      'An MLOps-style pipeline that turns unstructured inputs into governed, schema-validated data outputs on AWS Lambda with Terraform IaC.',
+    description: `An MLOps-style pipeline that turns unstructured inputs into governed, schema-validated data outputs. Runs on AWS Lambda with Terraform infrastructure-as-code, automated quality controls, and CI/CD deployment.`,
+  },
+  {
+    id: 'mcp-enterprise-integration-layer',
+    title: 'MCP Enterprise Integration Layer',
+    period: {
+      start: '2024',
+      end: '2024',
+    },
+    link: '/projects/mcp-enterprise-integration-layer',
+    logo: 'https://www.google.com/s2/favicons?domain=liinkd.xyz&sz=128',
+    skills: ['MCP Protocol', 'TypeScript', 'Notion', 'Jira', 'ClickUp', 'Confluence'],
+    shortDescription:
+      'An integration layer built on the MCP server protocol connecting AI agents to Notion, Jira, ClickUp, and Confluence with governed access and audit logging.',
+    description: `An integration layer built on the MCP server protocol that connects AI agents to Notion, Jira, ClickUp, and Confluence — enabling cross-system agentic orchestration with governed data access and full audit logging.`,
   },
 ];

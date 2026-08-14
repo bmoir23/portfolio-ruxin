@@ -12,7 +12,6 @@ import {
 } from 'motion/react';
 import React, { useRef, useState } from 'react';
 
-import { useHoverSound } from '@/lib/hooks/use-hover-sound';
 import { cn } from '@/lib/utils';
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
@@ -79,7 +78,6 @@ const DockIcon = ({
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const controls = useAnimation();
-  const playHoverSound = useHoverSound();
 
   const distance = useTransform(mouseX, (val: number) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -122,7 +120,6 @@ const DockIcon = ({
       style={{ width, height }}
       onMouseEnter={() => {
         setHovered(true);
-        playHoverSound();
       }}
       onMouseLeave={() => {
         setHovered(false);

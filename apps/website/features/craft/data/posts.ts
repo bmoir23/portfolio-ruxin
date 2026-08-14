@@ -63,7 +63,7 @@ export async function getAllCrafts() {
   let posts = await getAllPosts();
 
   posts = posts.filter(
-    (post) => post.metadata.published && post.metadata.type === 'component'
+    (post) => post.metadata.published && post.metadata.type === 'project'
   );
 
   return posts;

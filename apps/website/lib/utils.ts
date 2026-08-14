@@ -19,7 +19,7 @@ export function getAPI() {
     return 'http://localhost:6969';
   }
 
-  return 'https://portfolio-ruixens-projects.vercel.app';
+  return 'https://portfolio.brianmoir.dev';
 }
 
 /**

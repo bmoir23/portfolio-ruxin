@@ -13,7 +13,7 @@ async function generateLlmsContent() {
       const title = (component as any).title || component.name;
       const description =
         (component as any).description || `The ${title} component.`;
-      return `- [${title}](${USER.website}/craft/${component.name}): ${description}`;
+      return `- [${title}](${USER.website}/projects/${component.name}): ${description}`;
     });
 
   const exampleSet = new Set<string>();
@@ -43,14 +43,14 @@ async function generateLlmsContent() {
     '',
     `- [About](${USER.website}/me/about.md): A quick intro to me, my tech stack, and how to connect.`,
     `- [Experience](${USER.website}/me/experience.md): Highlights from my career and key roles I've taken on.`,
-    `- [Craft](${USER.website}/me/craft.md): A collection of my work.`,
+    `- [Projects](${USER.website}/me/projects.md): A collection of my work.`,
     '',
-    '## Craft',
+    '## Projects',
     '',
     `${posts
       .map(
         (post) =>
-          `- [${post.metadata.title}](${post.metadata.href ? post.metadata.href : `https://${USER.domain}/craft/${post.slug}`})`
+          `- [${post.metadata.title}](${post.metadata.href ? post.metadata.href : `https://${USER.domain}/projects/${post.slug}`})`
       )
       .join('\n')}`,
     '',

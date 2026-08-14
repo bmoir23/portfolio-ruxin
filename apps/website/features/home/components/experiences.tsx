@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ArrowUpRightIcon, BriefcaseIcon, ChevronDownIcon } from 'lucide-react';
 
 import { experiences } from '@/config/experience';
-import { useItemHoverSound } from '@/lib/hooks/use-item-hover-sound';
 import {
   CollapsibleContent,
   CollapsibleTrigger,
@@ -14,8 +13,6 @@ import {
 import { Tag } from '@repo/design-system/components/ui/tag';
 
 export function Experiences() {
-  const playHoverSound = useItemHoverSound();
-
   return (
     <div className="space-y-6">
       <h2 className="font-mono text-sm tracking-widest text-muted-foreground uppercase">
@@ -28,7 +25,7 @@ export function Experiences() {
             key={experience.id}
             defaultOpen={experience.isCurrentEmployer}
           >
-            <div className="group/exp" onMouseEnter={playHoverSound}>
+            <div className="group/exp">
               <CollapsibleTrigger className="flex w-full cursor-pointer items-start gap-4 text-left">
                 {experience.companyLogo ? (
                   <Image

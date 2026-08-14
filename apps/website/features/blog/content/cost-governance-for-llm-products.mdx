@@ -1,0 +1,35 @@
+---
+title: "Cost governance for LLM products"
+description: "How AI Gateway, model routing, and usage budgets keep production AI products fast, reliable, and affordable at scale."
+date: "2025-06-25"
+author: "Brian Moir"
+published: true
+category: "AI"
+readTime: "5 min read"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-01.png"
+---
+
+## Why cost governance is a product decision
+
+LLM pricing is unpredictable. A single heavy user, a runaway agent loop, or an unoptimized prompt can spike costs overnight. Cost governance isn't just a finance concern — it's a reliability and UX concern.
+
+### The three levers
+
+1. **Model routing**: send simple requests to cheaper models and reserve frontier models for complex work.
+2. **Caching**: cache repeated queries and embeddings aggressively.
+3. **Usage budgets**: cap spend per user, per workflow, or per day with graceful degradation.
+
+### AI Gateway as the control plane
+
+Cloudflare's AI Gateway sits between your app and provider APIs. It gives you:
+
+- Unified logging and request tracing
+- Fallbacks when a provider is down
+- Rate limits and retry policies
+- Cost attribution by request or user
+
+### Designing for fallbacks
+
+Production agents shouldn't fail when a model is overloaded. A fallback chain (for example GPT-4o → Claude → Llama) keeps the product responsive while you investigate the primary provider.
+
+Cost governance is continuous: set budgets, observe, tune, repeat.

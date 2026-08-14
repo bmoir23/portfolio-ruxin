@@ -33,7 +33,7 @@ const FONT_SIZE = 240;
 const BASELINE = VB_H + FONT_SIZE * 0.2; // slight bottom cut (~70% glyph visible)
 
 export function WordmarkFooter({
-  brandName = 'Ruixen UI',
+  brandName = 'Brian Moir',
 }: WordmarkFooterProps) {
   const uid = useId().replace(/:/g, '');
   const shineId = `wf-shine-${uid}`;

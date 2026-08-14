@@ -1,0 +1,33 @@
+---
+title: "Designing MCP servers for enterprise integrations"
+description: "How the Model Context Protocol simplifies connecting AI agents to the systems enterprises already use: Notion, Jira, ClickUp, and Confluence."
+date: "2025-06-10"
+author: "Brian Moir"
+published: true
+category: "AI"
+readTime: "5 min read"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-07.png"
+---
+
+## Why MCP matters
+
+The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is becoming the USB-C port for AI agents: a single, standardized interface that lets an LLM read from and write to external tools without learning each API's quirks.
+
+### What an MCP server does
+
+An MCP server exposes three things to an agent:
+
+1. **Tools** — actions the agent can invoke (e.g., `create_notion_page`, `update_jira_ticket`).
+2. **Resources** — read-only data the agent can reference (e.g., a list of Confluence pages).
+3. **Prompts** — reusable templates that shape how the agent calls the tools.
+
+### Enterprise design considerations
+
+- **Governed access**: map each tool to a user or service identity so agents can't overreach.
+- **Audit logging**: record every invocation, input, and output for compliance.
+- **Rate limiting**: protect downstream SaaS APIs from agent-driven bursts.
+- **Error contracts**: return structured, actionable errors so the agent can retry or escalate.
+
+### What's next
+
+In the Syncc Executive Agent OS, MCP servers act as the integration layer between the orchestration engine and the customer's existing stack. The result is agents that feel native to the tools the team already knows.

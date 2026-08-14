@@ -7,12 +7,9 @@ import { Provider as JotaiProvider } from 'jotai';
 import type { Session } from 'next-auth';
 import { SessionProvider } from 'next-auth/react';
 
-import { SoundProvider } from '@/lib/contexts/sound-context';
-
 export function Providers({
   children,
   session,
-  ...props
 }: {
   children: React.ReactNode;
   session: Session | null;
@@ -21,11 +18,9 @@ export function Providers({
     <DesignSystemProvider>
       <SessionProvider session={session}>
         <JotaiProvider>
-          <SoundProvider>
-            {children}
-            <Analytics />
-            <SpeedInsights />
-          </SoundProvider>
+          {children}
+          <Analytics />
+          <SpeedInsights />
         </JotaiProvider>
       </SessionProvider>
     </DesignSystemProvider>

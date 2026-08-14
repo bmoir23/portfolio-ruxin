@@ -25,37 +25,41 @@ export type User = {
   };
   flipSentences: string[];
   experiences?: Experience[];
+  resumeUrl: string;
 };
 
 const USER: User = {
-  firstName: 'Ruixen',
-  lastName: '',
-  name: 'Ruixen',
-  email: 'support@ruixen.com',
-  domain: 'portfolio-ruixens-projects.vercel.app',
-  jobTitle: 'UI Engineering Studio',
-  username: 'SriSomanaath',
-  tagline: 'Ruixen — Crafting tools people actually want to use',
-  twitterHandle: '@ruixen_ui',
-  location: 'Vancouver, Canada',
+  firstName: 'Brian',
+  lastName: 'Moir',
+  name: 'Brian Moir',
+  email: 'bmoirdev@gmail.com',
+  domain: 'portfolio.brianmoir.dev',
+  jobTitle: 'AI Solutions Architect',
+  username: 'bmoir23',
+  tagline:
+    'AI Solutions Architect specializing in multi-agent systems, RAG pipelines, and enterprise AI orchestration.',
+  twitterHandle: '',
+  location: 'United States',
   description:
-    'Notes on building thoughtful products, navigating frontend architecture, and figuring out what good software really looks like.',
+    "CTO & Principal AI Architect at Liink'd. I design production multi-agent platforms, RAG pipelines, and enterprise AI operating models — including evaluation, governance, observability, and scale-ready cloud deployment across GCP and Vertex AI.",
   namePronunciationUrl: '',
+  resumeUrl:
+    'https://docs.google.com/document/d/1b1bkDDj_6spetyCchz22X0rbsx7bbKB1bb2YbwD3JYI/edit?usp=sharing',
   social: {
-    twitter: 'https://x.com/ruixen_ui',
-    github: 'https://github.com/SriSomanaath',
-    linkedin: '',
+    twitter: '',
+    github: 'https://github.com/bmoir23',
+    linkedin: 'https://linkedin.com/in/brian-moir',
     bluesky: '',
   },
   flipSentences: [
-    'Crafting tools people actually want to use.',
-    'Frontend architecture & design systems.',
-    'Developer tooling, done thoughtfully.',
-    'Building with intention.',
-    'A UI engineering studio.',
+    'Multi-agent systems & RAG pipelines.',
+    'Enterprise AI orchestration.',
+    'LangChain, MCP, and n8n.',
+    'Production agent platforms that ship.',
+    'Governance, eval, and cost control.',
   ],
   image: {
-    profile: 'https://github.com/SriSomanaath.png',
+    profile: 'https://portfolio.brianmoir.dev/brian-moir.png',
   },
   experiences: experiences,
 };

@@ -12,7 +12,7 @@ export const dynamic = 'force-static';
 export async function generateMetadata(): Promise<Metadata> {
   const title = 'Blog';
   const description =
-    'Thoughts on software engineering, UI architecture, and building things that work.';
+    'Notes, deep dives, and lessons from building AI platforms, agentic systems, and developer infrastructure.';
 
   const image = createOgImage({ title, meta: description });
 
@@ -36,8 +36,8 @@ export default async function BlogPage() {
           <div className="mt-6 mb-12">
             <h1 className="mb-1 font-bold text-2xl tracking-tight">Blog</h1>
             <p className="mb-8 text-muted-foreground text-sm">
-              Thoughts on software engineering, UI architecture, and building
-              things that work.
+              Notes, deep dives, and lessons from building AI platforms,
+              agentic systems, and developer infrastructure.
             </p>
             <div className="flex flex-col gap-0">
               {posts.map((post) => (

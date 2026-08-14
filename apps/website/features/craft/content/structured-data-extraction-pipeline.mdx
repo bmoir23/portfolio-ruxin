@@ -1,0 +1,42 @@
+---
+title: Structured Data Extraction Pipeline
+date: "2024-03-01"
+description: An MLOps-style pipeline that turns unstructured inputs into governed, schema-validated data outputs on AWS Lambda with Terraform IaC.
+author: Brian Moir
+published: true
+type: "project"
+theme: "light"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-05.png"
+video: ""
+videoDark: ""
+aspect_ratio: 1.6
+href: ""
+---
+
+## Overview
+
+An MLOps-style pipeline that turns unstructured inputs into governed, schema-validated data outputs. Runs on AWS Lambda with Terraform infrastructure-as-code, automated quality controls, and CI/CD deployment — analogous to production data-orchestration patterns.
+
+[Website](https://get.liinkd.xyz/)
+
+## Tech Stack
+
+AWS Lambda · Terraform · Python · CI/CD · Schema Validation
+
+## Skills Used
+
+MLOps · Infrastructure as Code (Terraform) · Serverless Architecture · Schema Validation · CI/CD Automation
+
+## Architecture & Design Decisions
+
+Unstructured input is cheap. Trusted, schema-valid output is not. This pipeline is built like a data product: every record either passes a contract or it does not ship.
+
+**Serverless flow.** Lambda functions isolate ingest, extract, validate, and emit. That keeps failure domains small and makes retries cheap. No long-lived workers to babysit.
+
+**Infrastructure as code.** Terraform owns IAM, functions, queues, and env config. Environments (dev/stage/prod) are clones, not snowflakes, so a promotion is a plan/apply — not a console click.
+
+**Schema gates.** Extraction is useless if the downstream system cannot consume it. JSON Schema (or equivalent) runs as a hard gate: invalid payloads go to a dead-letter path with enough context to debug, they do not silently pollute the warehouse.
+
+**Quality controls.** Automated checks cover required fields, types, and referential integrity. CI runs the same validators the runtime uses, so a broken extractor fails the build.
+
+**CI/CD.** Push to main deploys through the same Terraform + function pipeline. Rollbacks are versioned artifacts, not "who last edited prod."

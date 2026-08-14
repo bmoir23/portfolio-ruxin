@@ -1,0 +1,40 @@
+---
+title: "RAG pipelines that don't hallucinate"
+description: "A practical look at chunking, embedding, retrieval, and evaluation patterns that keep retrieval-augmented generation grounded in source documents."
+date: "2025-06-18"
+author: "Brian Moir"
+published: true
+category: "AI"
+readTime: "6 min read"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-03.png"
+---
+
+## The RAG promise and the grounding problem
+
+Retrieval-Augmented Generation (RAG) is the simplest way to give an LLM domain knowledge it wasn't trained on. But the model is only as good as the context you retrieve — bad retrieval means plausible, confidently wrong answers.
+
+### Chunking is the bottleneck
+
+Most RAG failures trace back to how documents are split. A few rules of thumb:
+
+- **Preserve semantic boundaries**: split at headers, paragraphs, and tables rather than fixed token counts.
+- **Small enough to be precise**: chunks that are too long dilute the relevance signal.
+- **Overlapping context**: a small overlap between chunks preserves cross-boundary references.
+
+### Retrieval beyond cosine similarity
+
+Cosine similarity on embeddings is the baseline. Production systems often add:
+
+- **Hybrid search**: combine vector similarity with keyword matching (BM25).
+- **Metadata filters**: filter by source, date, or document type before ranking.
+- **Re-ranking**: use a cross-encoder to re-score the top-k candidates.
+
+### Evaluation with DeepEval
+
+We measure RAG quality with metrics like:
+
+- **Faithfulness** — is the answer supported by the retrieved context?
+- **Answer relevance** — does the answer address the question?
+- **Contextual precision** — is the retrieved context focused?
+
+The goal isn't zero hallucination; it's measurable, improvable grounding.

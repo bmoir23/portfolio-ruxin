@@ -1,21 +1,20 @@
 import merge from 'lodash.merge';
 import type { Metadata } from 'next';
 
+import { USER } from '@/config/user';
+
 type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
   title: string;
   description: string;
   image?: string;
 };
 
-const applicationName = 'Ruixen';
+const applicationName = USER.name;
 const author: Metadata['authors'] = {
-  name: 'Ruixen',
-  url: 'https://portfolio-ruixens-projects.vercel.app/',
+  name: USER.name,
+  url: USER.website,
 };
-const publisher = 'Ruixen';
-const twitterHandle = '@ruixen_ui';
-const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-const productionUrl = 'https://portfolio-ruixens-projects.vercel.app/';
+const publisher = USER.name;
 
 export const createMetadata = ({
   title,
@@ -28,9 +27,7 @@ export const createMetadata = ({
     title: parsedTitle,
     description,
     applicationName,
-    metadataBase: productionUrl
-      ? new URL(`${protocol}://${productionUrl}`)
-      : undefined,
+    metadataBase: USER.website ? new URL(USER.website) : undefined,
     authors: [author],
     creator: author.name,
     formatDetection: {
@@ -51,7 +48,7 @@ export const createMetadata = ({
     publisher,
     twitter: {
       card: 'summary_large_image',
-      creator: twitterHandle,
+      ...(USER.twitterHandle ? { creator: USER.twitterHandle } : {}),
     },
   };
 

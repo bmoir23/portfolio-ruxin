@@ -1,0 +1,33 @@
+---
+title: "Building agentic systems that ship"
+description: "Notes on multi-agent orchestration, MCP integrations, and the infrastructure patterns behind production AI products."
+date: "2025-06-01"
+author: "Brian Moir"
+published: true
+category: "AI"
+readTime: "3 min read"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-05.png"
+---
+
+## Why most agent demos never ship
+
+A weekend agent that books a calendar invite is not a product. Production agentic systems need orchestration you can inspect, tools you can govern, and a path to degrade when a model or an API fails.
+
+### What I write about here
+
+- Multi-agent orchestration and human-in-the-loop design
+- MCP server development and enterprise integrations
+- RAG pipelines, evaluation, and cost governance
+- Shipping on Cloudflare Workers with AI Gateway
+
+### Patterns that actually make it to production
+
+**Narrow agents, explicit state.** Give each agent a job. Keep the task graph, tool results, and pending approvals in structured state — not in a 40k-token system prompt.
+
+**Deterministic work stays deterministic.** Use n8n or a workflow engine for the paths that should not be improvised. Let the LLM choose *whether* to run them, not *how* they execute.
+
+**Eval before vibes.** Groundedness, tool-success rate, and cost per successful task are the metrics. If you cannot measure them, you cannot tell whether a prompt change helped.
+
+**A control plane in front of models.** Routing, caching, fallbacks, and budgets belong in a gateway. The product should still answer when a provider is slow or over budget.
+
+More notes as these systems go into real customer stacks.

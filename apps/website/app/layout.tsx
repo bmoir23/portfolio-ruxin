@@ -39,8 +39,8 @@ export function generateMetadata(): Metadata {
       ],
     },
     twitter: {
-      creator: USER.twitterHandle,
       card: 'summary_large_image',
+      ...(USER.twitterHandle ? { creator: USER.twitterHandle } : {}),
     },
   };
 }

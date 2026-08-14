@@ -1,0 +1,46 @@
+---
+title: MCP Enterprise Integration Layer
+date: "2024-09-01"
+description: An integration layer built on the MCP server protocol connecting AI agents to Notion, Jira, ClickUp, and Confluence with governed access and audit logging.
+author: Brian Moir
+published: true
+type: "project"
+theme: "light"
+image: "https://pub-940ccf6255b54fa799a9b01050e6c227.r2.dev/gradients/shade_shiters/shade-shifters-07.png"
+video: ""
+videoDark: ""
+aspect_ratio: 1.6
+href: ""
+---
+
+## Overview
+
+An integration layer built on the MCP server protocol that connects AI agents to Notion, Jira, ClickUp, and Confluence — enabling cross-system agentic orchestration with governed data access and full audit logging.
+
+[Website](https://get.liinkd.xyz/)
+
+## Tech Stack
+
+MCP Protocol · TypeScript · Notion · Jira · ClickUp · Confluence
+
+## Skills Used
+
+MCP Server Development · API Integration · Cross-System Orchestration · Access Governance · Audit Logging
+
+## Architecture & Design Decisions
+
+MCP is the USB-C port for agents: one protocol, many tools. This layer is how Syncc talks to the systems enterprises already run, without teaching every agent every API.
+
+**What the server exposes.**
+
+1. **Tools** — actions (`create_notion_page`, `update_jira_ticket`, `comment_on_clickup_task`).
+2. **Resources** — read-only context (Confluence trees, Notion databases).
+3. **Prompts** — reusable templates that shape how the agent calls those tools.
+
+**Governed access.** Each tool maps to a user or service identity. Agents cannot overreach a role they were not granted. That is the difference between a demo integration and something you can put in front of a customer.
+
+**Audit logging.** Every invocation records actor, tool, input, output, and timestamp. Compliance teams can reconstruct what an agent did; engineers can debug a bad write without guessing.
+
+**Rate limiting & errors.** Downstream SaaS APIs hate agent-driven bursts. The layer applies per-tool limits and returns structured, actionable errors so the orchestrator can retry, back off, or escalate to a human.
+
+In Syncc, this integration layer is the boundary between the orchestration engine and the customer's stack. Agents feel native to tools the team already knows.

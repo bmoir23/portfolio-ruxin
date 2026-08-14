@@ -1,5 +1,4 @@
 import { FloatingHeader } from '@/components/navigation/floating-header';
-import { PronounceMyName } from '@/components/pronounce-my-name';
 import { RevealOnLoad } from '@/components/reveal-on-load';
 import { ScrollArea } from '@/components/scroll-area';
 import { Section } from '@/components/section';
@@ -10,7 +9,6 @@ import { GitHubContribution } from '@/features/home/components/github-contributi
 import Info from '@/features/home/components/info';
 import { Experiences } from '@/features/home/components/experiences';
 import { Projects } from '@/features/home/components/projects';
-import { Testimonials } from '@/features/home/components/testimonials';
 import { WordmarkFooter } from '@/components/wordmark-footer';
 import { createOgImage } from '@/lib/createOgImage';
 import { JsonLd, Organization, WithContext } from '@/lib/seo/json-ld';
@@ -45,18 +43,16 @@ export default async function Page() {
       <JsonLd code={jsonLd} />
       <Info show={['time', 'screen', 'llms']} />
       <ScrollArea useScrollAreaId className="">
-        <FloatingHeader scrollTitle="Ruixen" />
+        <FloatingHeader scrollTitle={USER.name} />
 
         <Separator />
 
         {/* Hero Section */}
         <Section>
-          {/* Name and Title */}
           <RevealOnLoad delay={0} duration={0.5}>
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <h1 className="font-semibold text-2xl">Ruixen</h1>
-                <PronounceMyName name="Ruixen" />
+                <h1 className="font-semibold text-2xl">{USER.name}</h1>
               </div>
               <p className="font-mono text-sm tracking-wider text-muted-foreground uppercase">
                 {USER.jobTitle}
@@ -64,31 +60,52 @@ export default async function Page() {
             </div>
           </RevealOnLoad>
 
-          {/* Description */}
           <RevealOnLoad delay={0.15} duration={0.5}>
             <div className="mt-6 space-y-3 text-foreground/70">
               <p className="leading-relaxed">
-                Ruixen is a small UI engineering studio working at the
-                intersection of design and code. We turn rough ideas into
-                polished experiences that feel effortless.
+                I&apos;m the CTO &amp; Principal AI Architect at{' '}
+                <a
+                  href="https://get.liinkd.xyz/"
+                  className="text-foreground underline-offset-4 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Liink&apos;d
+                </a>
+                , where I designed the Syncc Executive Agent OS — a production
+                multi-agent platform built on LangChain orchestration, the MCP
+                protocol, n8n agentic workflows, and vector database retrieval.
               </p>
               <p className="leading-relaxed">
-                Our focus is on thoughtful interfaces, component libraries, and
-                developer tooling — with care for accessibility, performance,
-                and making software that respects people's time.
+                I bring 10+ years of technical leadership across SaaS and
+                enterprise platforms, owning product strategy, delivery
+                execution, and cross-functional roadmap alignment from discovery
+                to launch. I specialize in LLM platform design, multi-agent
+                orchestration, and enterprise AI operating models — including
+                evaluation frameworks, governance controls, observability, and
+                scale-ready cloud deployment across GCP and Vertex AI.
+              </p>
+              <p>
+                <a
+                  href={USER.resumeUrl}
+                  className="font-medium text-foreground underline-offset-4 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download resume / CV
+                </a>
               </p>
             </div>
           </RevealOnLoad>
 
-          {/* Skills Venn Diagram */}
           <RevealOnLoad delay={0.3} duration={0.6}>
             <SkillsVenn
               profileImage={USER.image.profile}
               skills={{
-                top: 'Frontend Architecture',
-                left: 'Design Systems',
-                right: 'Developer Tooling',
-                bottom: 'Product Thinking\n& User Research',
+                top: 'Multi-Agent Systems',
+                left: 'RAG Pipelines',
+                right: 'Enterprise AI',
+                bottom: 'MCP &\nOrchestration',
               }}
               className="mt-8"
             />
@@ -97,41 +114,29 @@ export default async function Page() {
 
         <Separator />
 
-        {/* Testimonials Section */}
-        <Section>
-          <Testimonials />
-        </Section>
-
-        <Separator />
-
-        {/* GitHub Contribution Section */}
         <Section>
           <GitHubContribution />
         </Section>
 
         <Separator />
 
-        {/* Projects Section */}
         <Section>
           <Projects />
         </Section>
 
         <Separator />
 
-        {/* Experiences Section */}
         <Section>
           <Experiences />
         </Section>
 
         <Separator />
 
-        {/* Wordmark Footer */}
         <Section className="px-0 py-0 sm:px-0 md:py-0">
           <WordmarkFooter brandName={USER.name} />
         </Section>
 
         <Separator />
-        {/* Bottom spacing — matches dock height */}
         <div className="h-[clamp(80px,10vh,200px)] shrink-0" />
       </ScrollArea>
     </>
