@@ -686,13 +686,13 @@ export const GithubCalendar = memo(function GithubCalendar({
       });
       particles = particles.filter((particle) => particle.life < particle.maxLife);
 
-      bullets.forEach((bullet, bulletIdx) => {
-        weeks.forEach((week, wi) => {
-          week.forEach((date, di) => {
-            if (!date) return;
+      bullets = bullets.filter((bullet) => {
+        for (const [wi, week] of weeks.entries()) {
+          for (const [di, date] of week.entries()) {
+            if (!date) continue;
 
             const currentLevel = cellLevels.get(date) ?? 0;
-            if (currentLevel === 0) return;
+            if (currentLevel === 0) continue;
 
             const cellX = wi * step;
             const cellY = monthLabelHeight + di * step;
@@ -703,8 +703,6 @@ export const GithubCalendar = memo(function GithubCalendar({
               bullet.y < cellY + cellSize &&
               bullet.y + bullet.height > cellY
             ) {
-              bullets.splice(bulletIdx, 1);
-
               const newLevel = currentLevel - 1;
               cellLevels.set(date, newLevel);
 
@@ -725,9 +723,12 @@ export const GithubCalendar = memo(function GithubCalendar({
                 activeColors[`level${currentLevel}` as keyof ThemeColors] ||
                 activeColors.level0;
               explode(cellX + cellSize / 2, cellY + cellSize / 2, hitColor);
+              return false;
             }
-          });
-        });
+          }
+        }
+
+        return true;
       });
     };
 
