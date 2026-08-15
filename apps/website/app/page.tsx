@@ -4,12 +4,14 @@ import { ScrollArea } from '@/components/scroll-area';
 import { Section } from '@/components/section';
 import Separator from '@/components/separator';
 import { SkillsVenn } from '@/components/skills-venn';
-import { USER } from '@/config/user';
-import { GitHubContribution } from '@/features/home/components/github-contribution';
-import Info from '@/features/home/components/info';
-import { Experiences } from '@/features/home/components/experiences';
-import { Projects } from '@/features/home/components/projects';
+import { GithubCalendar } from '@/components/ui/retro-space-shooter-git-hub-calendar';
 import { WordmarkFooter } from '@/components/wordmark-footer';
+import { USER } from '@/config/user';
+import { Experiences } from '@/features/home/components/experiences';
+import Info from '@/features/home/components/info';
+import { Projects } from '@/features/home/components/projects';
+import { Button } from '@repo/design-system/components/ui/button';
+import { DownloadIcon } from 'lucide-react';
 import { createOgImage } from '@/lib/createOgImage';
 import { JsonLd, Organization, WithContext } from '@/lib/seo/json-ld';
 import { createMetadata } from '@/lib/seo/metadata';
@@ -85,15 +87,18 @@ export default async function Page() {
                 evaluation frameworks, governance controls, observability, and
                 scale-ready cloud deployment across GCP and Vertex AI.
               </p>
-              <p>
-                <a
-                  href={USER.resumeUrl}
-                  className="font-medium text-foreground underline-offset-4 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Download resume / CV
-                </a>
+              <p className="pt-2">
+                <Button asChild size="sm">
+                  <a
+                    href={USER.resumeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download="Brian-Moir-Resume.pdf"
+                  >
+                    <DownloadIcon />
+                    Download resume / CV
+                  </a>
+                </Button>
               </p>
             </div>
           </RevealOnLoad>
@@ -115,7 +120,8 @@ export default async function Page() {
         <Separator />
 
         <Section>
-          <GitHubContribution />
+          <h2 className="sr-only">GitHub Contribution</h2>
+          <GithubCalendar username={USER.username} className="w-full" />
         </Section>
 
         <Separator />

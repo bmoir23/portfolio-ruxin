@@ -44,7 +44,7 @@ const USER: User = {
     "CTO & Principal AI Architect at Liink'd. I design production multi-agent platforms, RAG pipelines, and enterprise AI operating models — including evaluation, governance, observability, and scale-ready cloud deployment across GCP and Vertex AI.",
   namePronunciationUrl: '',
   resumeUrl:
-    'https://docs.google.com/document/d/1b1bkDDj_6spetyCchz22X0rbsx7bbKB1bb2YbwD3JYI/edit?usp=sharing',
+    'https://docs.google.com/document/d/1b1bkDDj_6spetyCchz22X0rbsx7bbKB1bb2YbwD3JYI/export?format=pdf',
   social: {
     twitter: '',
     github: 'https://github.com/bmoir23',
